@@ -17,9 +17,9 @@ Unity 2022.2.4f1 <br />
 * Donation Capabilities
 * Sharing Capabilities
 
-Use this link to join the Trello Board: https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660
-Use this link to view Point Cloud scans of Lynching Sites: https://drive.google.com/drive/folders/162uuFOhScsZwbtLCMqeaazd7V0WfGBDk?usp=sharing
-To View the Point Cloud scans outside of Unity, you can use Cloud Compare: https://www.danielgm.net/cc/
+Use this link to join the Trello Board: https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660 <br />
+Use this link to view Point Cloud scans of Lynching Sites: https://drive.google.com/drive/folders/162uuFOhScsZwbtLCMqeaazd7V0WfGBDk?usp=sharing <br />
+To View the Point Cloud scans outside of Unity, you can use Cloud Compare: https://www.danielgm.net/cc/ <br />
 
  # Project Timelime
 <b>Sprint 1</b> - 2/14/23 <br />
