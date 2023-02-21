@@ -7,14 +7,14 @@ The Lynching Sites Project is part of a growing network of people who want the w
 A mobile application that provides users with a unique and enhanced portal to the research on the existing Lynching Sites Project (LSP) website.
  
  # Project Requirements
-Unity 2022.2.4f1
+Unity 2022.2.4f1 <br />
 <b>App:</b>
-<ul>Splash Screen</ul>
-<ul>About Page</ul>
-<ul>Interactive Map with View of Lynching Sites</ul>
-<ul>Immersive Experience at 5 of the Lynching Sites Markers</ul>
-<ul>Donation Capabilities</ul>
-<ul>Sharing Capabilities</ul>
+* Splash Screen
+* About Page
+* Interactive Map with View of Lynching Sites
+* Immersive Experience at 5 of the Lynching Sites Markers
+* Donation Capabilities
+* Sharing Capabilities
 
 Use this link to join the Trello Board: https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660
 
