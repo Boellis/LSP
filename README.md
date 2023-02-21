@@ -6,7 +6,7 @@
  
  # Project Requirements
 Unity 2022.2.4f1
-Use this link to join the Trello Board[https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660](url)
+[Use this link to join the Trello Board]([url](https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660))
 
  # Project Timelime
 <b>Sprint 1</b> - 2/14/23 <br />
