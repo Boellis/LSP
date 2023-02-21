@@ -8,7 +8,8 @@ A mobile application that provides users with a unique and enhanced portal to th
  
  # Project Requirements
 Unity 2022.2.4f1 <br />
-<b>App:</b>
+<br />
+<b>App Needs:</b>
 * Splash Screen
 * About Page
 * Interactive Map with View of Lynching Sites
