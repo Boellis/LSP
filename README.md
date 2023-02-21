@@ -1,12 +1,15 @@
 # About the Lynching Sites Project(LSP)
- LSP App
+The Lynching Sites Project of Memphis collaborates with others to cultivate courageous conversations and programs that uncover the whole truth of racial terror and violence and change the narrative in Shelby County, leading to understanding, compassion, and healing, while working toward racial equality and justice.
+
+The Lynching Sites Project is part of a growing network of people who want the whole and accurateruth to be told about the history of Shelby County. 
 
 # Project Description
- LSP AR App Unity 2022.2.4f1
+A mobile application that provides users with a unique and enhanced portal to the research on the existing Lynching Sites Project (LSP) website.
  
  # Project Requirements
 Unity 2022.2.4f1
-[Use this link to join the Trello Board](]https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660])
+
+Use this link to join the Trello Board: https://trello.com/invite/sptlgrw/ATTIb6c9c31cf4145476d6dd0124e1555dac8A9AD660
 
  # Project Timelime
 <b>Sprint 1</b> - 2/14/23 <br />
