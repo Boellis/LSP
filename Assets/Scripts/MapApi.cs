@@ -7,6 +7,8 @@ public class MapApi : MonoBehaviour
 {
 
     public static void OpenMap(string address){
-        Application.OpenURL("https://www.google.com/maps/dir/?api=1&query="+ UnityWebRequest.EscapeURL(address));
+        var escAddr=UnityWebRequest.EscapeURL(address);
+        //Debug.Log(escAddr);
+        Application.OpenURL("https://www.google.com/maps/dir/?api=1&destination="+ escAddr);
     }
 }
