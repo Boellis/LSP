@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class NativeToolkitExample : MonoBehaviour {
 
-	public Text console;
-	public Texture2D texture;
+	private Text console;
+	private Texture2D texture;
 
 	string imagePath = "";
 
