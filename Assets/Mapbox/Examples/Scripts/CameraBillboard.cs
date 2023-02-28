@@ -8,6 +8,12 @@
 
 		public void Start()
 		{
+			//If a camera doesn't exists, find the main camera in the scene and use that
+			if(_camera == null)
+			{
+				GameObject cameraGO = GameObject.Find("Main Camera");
+				_camera = cameraGO.GetComponent<Camera>();
+			}
 			_camera = Camera.main;
 		}
 
