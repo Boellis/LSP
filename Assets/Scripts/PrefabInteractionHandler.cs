@@ -7,6 +7,9 @@ public class PrefabInteractionHandler : MonoBehaviour
 {
 	//Used to store/load victim data from dictionary
 	LynchingVictimPrefabManager prefabManager;
+	//Local data that is being used by the prefab manager
+	Dictionary<string, LynchingVictim> localVictimData;
+
 	//Shown when a user selects a prefab on the map page
 	public GameObject infoCanvasPopup;
 
@@ -26,28 +29,268 @@ public class PrefabInteractionHandler : MonoBehaviour
 		GameObject cameraGO = GameObject.Find("Main Camera");
 		infoCanvasPopup.GetComponent<Canvas>().worldCamera = cameraGO.GetComponent<Camera>();
 
-		//Get the LV Prefab Manager from our active scene with all the data loaded in
+		//Get the LV Prefab Manager from our active scene
 		prefabManager = GameObject.Find("Manager").GetComponent<LynchingVictimPrefabManager>();
-	}
-	private void OnMouseDown()
-	{
-		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
-		if(gameObject.CompareTag("Ell Persons"))
-		{
-			Debug.Log("We clicked Ell Persons");
-			Dictionary<string, LynchingVictim> localVictimData = prefabManager.getVictimData();
 
+		//Load the data from our LynchingVictimPrefabManager
+		Dictionary<string, LynchingVictim> localVictimData = prefabManager.getVictimData();
+
+		Debug.Log("---------------------------------------------------------------------------------------");
+		Debug.Log(localVictimData.Count);
+		Debug.Log("---------------------------------------------------------------------------------------");
+
+
+
+		//-------------------------------
+
+		//Check the tag of the object the script is attached to and set the name of the marker based on the associated tag
+		if (this.gameObject.CompareTag("Ell Persons"))
+		{
 			//Check our dictionary and see if the victim info is currently in it
 			if (localVictimData.TryGetValue("Ell Persons", out LynchingVictim victim))
 			{
 				Debug.Log("Victim  found in the dictionary");
-				victimNameText.text = "";
+				//Set the name of the lynching site marker on the map
+				markerName.text = victim.name;
+
 			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+		}
+		//------------------------------------------------------------------
+
+		//-------------------------------
+
+		//Check the tag of the object the script is attached to and set the name of the marker based on the associated tag
+		if (this.gameObject.CompareTag("People's Grocery"))
+		{
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("People's Grocery", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				//Set the name of the lynching site marker on the map
+				markerName.text = victim.name;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+		}
+		//------------------------------------------------------------------
+
+		//-------------------------------
+
+		//Check the tag of the object the script is attached to and set the name of the marker based on the associated tag
+		if (this.gameObject.CompareTag("Jesse Lee Bond"))
+		{
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Jesse Lee Bond", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				//Set the name of the lynching site marker on the map
+				markerName.text = victim.name;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+		}
+		//------------------------------------------------------------------
+
+		//-------------------------------
+
+		//Check the tag of the object the script is attached to and set the name of the marker based on the associated tag
+		if (this.gameObject.CompareTag("Lee Walker"))
+		{
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Lee Walker", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				//Set the name of the lynching site marker on the map
+				markerName.text = victim.name;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+		}
+		//------------------------------------------------------------------
+
+		//Check the tag of the object the script is attached to and set the name of the marker based on the associated tag
+		if (this.gameObject.CompareTag("Unnamed Victim"))
+		{
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Unnamed Victim", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				//Set the name of the lynching site marker on the map
+				markerName.text = victim.name;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+		}
+		//------------------------------------------------------------------
+	}
+	//The user has clicked/tapped on one of our prefab markers
+	private void OnMouseDown()
+	{
+		//Load the data from our LynchingVictimPrefabManager
+		Dictionary<string, LynchingVictim> localVictimData = prefabManager.getVictimData();
+		//-------------------------------
+		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
+		if (gameObject.CompareTag("Ell Persons"))
+		{
+			Debug.Log("We clicked Ell Persons");
+
+			//Turn on the prefab InfoCanvasPopup to show information about the site
+			if (!infoCanvasPopup.activeInHierarchy)
+			{
+				infoCanvasPopup.SetActive(true);
+			}
+			//If the popup is already showing, turn it off
 			else
 			{
-				Debug.Log("Victim not found in the dictionary");
+				infoCanvasPopup.SetActive(false);
 			}
+			
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Ell Persons", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				victimNameText.text = victim.name;
+				locationText.text = victim.location;
+				dateText.text = victim.date;
+
+			}else{Debug.Log("Victim not found in the dictionary");}
 
 		}
+
+		//------------------------------------------------------------------------------------------
+
+		//-------------------------------
+		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
+		if (gameObject.CompareTag("People's Grocery"))
+		{
+			Debug.Log("We clicked People's Grocery");
+
+			//Turn on the prefab InfoCanvasPopup to show information about the site
+			if (!infoCanvasPopup.activeInHierarchy)
+			{
+				infoCanvasPopup.SetActive(true);
+			}
+			//If the popup is already showing, turn it off
+			else
+			{
+				infoCanvasPopup.SetActive(false);
+			}
+
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("People's Grocery", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				victimNameText.text = victim.name;
+				locationText.text = victim.location;
+				dateText.text = victim.date;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+
+		}
+
+		//------------------------------------------------------------------------------------------
+
+		//-------------------------------
+		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
+		if (gameObject.CompareTag("Jesse Lee Bond"))
+		{
+			Debug.Log("We clicked Jesse Lee Bond");
+
+			//Turn on the prefab InfoCanvasPopup to show information about the site
+			if (!infoCanvasPopup.activeInHierarchy)
+			{
+				infoCanvasPopup.SetActive(true);
+			}
+			//If the popup is already showing, turn it off
+			else
+			{
+				infoCanvasPopup.SetActive(false);
+			}
+
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Jesse Lee Bond", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				victimNameText.text = victim.name;
+				locationText.text = victim.location;
+				dateText.text = victim.date;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+
+		}
+
+		//------------------------------------------------------------------------------------------
+
+		//-------------------------------
+		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
+		if (gameObject.CompareTag("Lee Walker"))
+		{
+			Debug.Log("We clicked Lee Walker");
+
+			//Turn on the prefab InfoCanvasPopup to show information about the site
+			if (!infoCanvasPopup.activeInHierarchy)
+			{
+				infoCanvasPopup.SetActive(true);
+			}
+			//If the popup is already showing, turn it off
+			else
+			{
+				infoCanvasPopup.SetActive(false);
+			}
+
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Lee Walker", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				victimNameText.text = victim.name;
+				locationText.text = victim.location;
+				dateText.text = victim.date;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+
+		}
+
+		//------------------------------------------------------------------------------------------
+
+		//-------------------------------
+		//Check the tag of the gameobject clicked and see if that victim exists in our dictionary
+		if (gameObject.CompareTag("Unnamed Victim"))
+		{
+			Debug.Log("We clicked Unnamed Victim");
+
+			//Turn on the prefab InfoCanvasPopup to show information about the site
+			if (!infoCanvasPopup.activeInHierarchy)
+			{
+				infoCanvasPopup.SetActive(true);
+			}
+			//If the popup is already showing, turn it off
+			else
+			{
+				infoCanvasPopup.SetActive(false);
+			}
+
+			Debug.Log("---------------------------------------------------------------------------------------");
+			Debug.Log(localVictimData.Count);
+			Debug.Log("---------------------------------------------------------------------------------------");
+
+
+			//Check our dictionary and see if the victim info is currently in it
+			if (localVictimData.TryGetValue("Unnamed Victim", out LynchingVictim victim))
+			{
+				Debug.Log("Victim  found in the dictionary");
+				victimNameText.text = victim.name;
+				locationText.text = victim.location;
+				dateText.text = victim.date;
+
+			}
+			else { Debug.Log("Victim not found in the dictionary"); }
+
+		}
+
+		//------------------------------------------------------------------------------------------
 	}
 }
