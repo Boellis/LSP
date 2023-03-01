@@ -1978,6 +1978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5407fbcd9ccd0449895d98362b8627a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  console: {fileID: 0}
+  texture: {fileID: 0}
 --- !u!114 &1844826418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,7 +2009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1851946845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,7 +2025,7 @@ MonoBehaviour:
   m_Camera: {fileID: 484130690}
   m_OriginBaseGameObject: {fileID: 1851946844}
   m_CameraFloorOffsetObject: {fileID: 1659434505}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.1176
 --- !u!4 &1851946846
 Transform:

@@ -199,7 +199,7 @@ MonoBehaviour:
   _options:
     locationOptions:
       latitudeLongitude: 35.149022, -90.051629
-      zoom: 13.6
+      zoom: 12.9
     extentOptions:
       extentType: 0
       defaultExtents:
@@ -907,9 +907,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1844826416}
   - component: {fileID: 1844826415}
-  - component: {fileID: 1844826418}
   - component: {fileID: 1844826417}
   - component: {fileID: 1844826419}
+  - component: {fileID: 1844826420}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -956,18 +956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5407fbcd9ccd0449895d98362b8627a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1844826418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844826414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92db6939d9e9345199b50c8fc89dd7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  console: {fileID: 0}
+  texture: {fileID: 0}
 --- !u!114 &1844826419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +968,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41bb3628908de7447a4a524f33010e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1844826420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844826414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92db6939d9e9345199b50c8fc89dd7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1000009774265569
@@ -3895,7 +3897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1844826418}
+      - m_Target: {fileID: 1844826420}
         m_TargetAssemblyTypeName: BrowserOpener, Assembly-CSharp
         m_MethodName: openBrowserURL
         m_Mode: 5
