@@ -3,22 +3,17 @@ using System.Collections;
 
 public class BrowserOpener : MonoBehaviour {
 
+	//public string pageToOpen = "https://www.google.com";
+
+	// check readme file to find out how to change title, colors etc.
 	public void openBrowserURL(string pageToOpen) {
 		InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions();
 		options.displayURLAsPageTitle = false;
-		options.pageTitle = "The Lynching Sites Project";
-
-		/*options.barBackgroundColor = "#FF0000";
-		options.textColor = "#FF0000";
-		options.browserBackgroundColor = "#FF0000";
-		*/
+		options.pageTitle = "InAppBrowser example";
 
 		InAppBrowser.OpenURL(pageToOpen, options);
 	}
 
-	public void Start()
-	{
-	}
 	public void OnClearCacheClicked() {
 		Debug.Log("Clear Cache!");
 		InAppBrowser.ClearCache();

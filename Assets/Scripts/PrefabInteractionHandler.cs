@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PrefabInteractionHandler : MonoBehaviour
 {
 	//Used to store/load victim data from dictionary
@@ -151,7 +152,7 @@ public class PrefabInteractionHandler : MonoBehaviour
 				descriptionText.text = victim.description;
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
-
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir/35.1158711,-90.0279878/35.159867,+-89.881309/@35.1598438,-89.9513502,12z/data=!4m7!4m6!1m1!4e1!1m3!2m2!1d-89.881309!2d35.159867"); });
 
@@ -188,7 +189,8 @@ public class PrefabInteractionHandler : MonoBehaviour
 				descriptionText.text = victim.description;
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
-				
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.119395,%20-90.038595"); });
 			}
@@ -223,6 +225,7 @@ public class PrefabInteractionHandler : MonoBehaviour
 				locationText.text = victim.location;
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 				
@@ -262,7 +265,8 @@ public class PrefabInteractionHandler : MonoBehaviour
 				descriptionText.text = victim.description;
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
-				
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.158065,%20-90.049201"); });
 			}
@@ -297,6 +301,7 @@ public class PrefabInteractionHandler : MonoBehaviour
 				locationText.text = victim.location;
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 
@@ -312,10 +317,9 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 	public void openWebPage(string victimInfoURL)
 	{
-		Debug.Log("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeee");
 		Application.OpenURL(victimInfoURL);
-		//BrowserOpener browser = this.gameObject.GetComponent<BrowserOpener>();
-		//browser.openBrowserURL(victimInfoURL);
+		BrowserOpener browser = this.gameObject.GetComponent<BrowserOpener>();
+		browser.openBrowserURL(victimInfoURL);
 	}
 
 }

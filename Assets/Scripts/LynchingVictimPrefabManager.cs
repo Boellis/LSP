@@ -9,7 +9,7 @@ public class LynchingVictimPrefabManager : MonoBehaviour
     void Start()
     {
         //Add all of the lynching sites members to a list
-        LynchingVictim victim1 = new LynchingVictim("Ell Persons", "Location2", "May 22, 1917", "Upon his capture by a mob local papers announced that he would be burned the next morning. The crowd gathered to watch was estimated at 3,000. Vendors set up stands among the crowd and sold sandwiches and snacks. It was reportedly a carnival-like atmosph","https://lynchingsitesmem.org/lynching/ell-persons", true);
+        LynchingVictim victim1 = new LynchingVictim("Ell Persons", "Wolf River Area Near Bartlett Rd.", "May 22, 1917", "Upon his capture by a mob local papers announced that he would be burned the next morning. The crowd gathered to watch was estimated at 3,000. Vendors set up stands among the crowd and sold sandwiches and snacks. It was reportedly a carnival-like atmosph","https://lynchingsitesmem.org/lynching/ell-persons", true);
         victimData.Add("Ell Persons", victim1);
 
         LynchingVictim victim2 = new LynchingVictim("People's Grocery", "Mississippi Blvd & Walker Ave", "Mar 9, 1892", "The three black grocers, all family men, were arrested and jailed. Three days later the downtown jail was stormed and Stewart, Moss and McDowell were dragged out and taken to the nearby Chesapeake and Ohio rail yards.", "https://lynchingsitesmem.org/lynching/peoples-grocery-lynchings-thomas-moss-will-stewart-calvin-mcdowell", true);
