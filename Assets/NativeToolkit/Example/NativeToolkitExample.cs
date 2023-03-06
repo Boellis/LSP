@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class NativeToolkitExample : MonoBehaviour {
 
-	public Text console;
+	//public Text console;
 	public Texture2D texture;
 
 	string imagePath = "";
 
 	void Start()
 	{
-        console.text += "\nLocation enabled: " + NativeToolkit.StartLocation();
-        console.text += "\nDevice country: " + NativeToolkit.GetCountryCode();
-        console.text += "\nLaunched from notification: " + NativeToolkit.WasLaunchedFromNotification();
+        //console.text += "\nLocation enabled: " + NativeToolkit.StartLocation();
+        //console.text += "\nDevice country: " + NativeToolkit.GetCountryCode();
+        //console.text += "\nLaunched from notification: " + NativeToolkit.WasLaunchedFromNotification();
 	}
 	
 	void OnEnable ()
@@ -92,8 +92,8 @@ public class NativeToolkitExample : MonoBehaviour {
 
 	public void OnGetLocationPress()
 	{
-		console.text += "\nLongitude: " + NativeToolkit.GetLongitude ().ToString ();
-		console.text += "\nLatitude: " + NativeToolkit.GetLatitude ().ToString ();
+		//console.text += "\nLongitude: " + NativeToolkit.GetLongitude ().ToString ();
+		//console.text += "\nLatitude: " + NativeToolkit.GetLatitude ().ToString ();
 	}
 
 	public void OnRateAppPress()
@@ -107,40 +107,40 @@ public class NativeToolkitExample : MonoBehaviour {
 
 	void ScreenshotSaved(string path)
 	{
-		console.text += "\n" + "Screenshot saved to: " + path;
+		//console.text += "\n" + "Screenshot saved to: " + path;
 	}
 	
 	void ImageSaved(string path)
 	{
-		console.text += "\n" + texture.name + " saved to: " + path;
+		//console.text += "\n" + texture.name + " saved to: " + path;
 	}
 
 	void ImagePicked(Texture2D img, string path)
 	{
 		imagePath = path;
-		console.text += "\nImage picked at: " + imagePath;
+		//console.text += "\nImage picked at: " + imagePath;
 		Destroy (img);
 	}
 
 	void CameraShotComplete(Texture2D img, string path)
 	{
 		imagePath = path;
-		console.text += "\nCamera shot saved to: " + imagePath;
+		//console.text += "\nCamera shot saved to: " + imagePath;
 		Destroy (img);
 	}
 
 	void DialogFinished(bool result)
 	{
-		console.text += "\nDialog returned: " + result;
+		//console.text += "\nDialog returned: " + result;
 	}
 
 	void AppRated(string result)
 	{
-		console.text += "\nRate this app result: " + result;
+		//console.text += "\nRate this app result: " + result;
 	}
 
 	void ContactPicked(string name, string number, string email)
 	{
-		console.text +=  "\nContact Details:\nName:"+ name + ", number:" + number + ", email:" + email;
+		//console.text +=  "\nContact Details:\nName:"+ name + ", number:" + number + ", email:" + email;
 	}
 }
