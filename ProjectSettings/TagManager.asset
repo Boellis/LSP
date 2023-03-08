@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ell Persons
+  - People's Grocery
+  - Jesse Lee Bond
+  - Lee Walker
+  - Unnamed Victim
   layers:
   - Default
   - TransparentFX
