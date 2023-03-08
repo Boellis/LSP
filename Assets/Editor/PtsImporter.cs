@@ -25,6 +25,7 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
         string[] buffer;
         string line;
         var points = new List<Vector3>();
+        var normals = new List<Vector3>();
         var colors = new List<Color>();
         var indices = new List<int>();
         int index=0;
@@ -37,6 +38,7 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
             //first we create a point mesh like normal.
             tempMesh.name=filename+"_mesh_"+meshCount;
             tempMesh.SetVertices(points);
+            tempMesh.SetNormals(normals);
             tempMesh.SetColors(colors);
             tempMesh.SetIndices(indices,MeshTopology.Points,0);
             //then we get the center as an offset, and shift all the points accordingly
@@ -67,8 +69,12 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
             buffer = sr.ReadLine().Split();
             if(invertYZ){
                 points.Add(new Vector3 (float.Parse (buffer[0])*scale, float.Parse (buffer[2])*scale,float.Parse (buffer[1])*scale));
-            }else
+                normals.Add(new Vector3(float.Parse(buffer[0])*scale,float.Parse(buffer[2])*scale,float.Parse(buffer[1])*scale));
+            }else{
                 points.Add(new Vector3 (float.Parse (buffer[0])*scale, float.Parse (buffer[1])*scale,float.Parse (buffer[2])*scale));
+                normals.Add(new Vector3(float.Parse(buffer[0])*scale,float.Parse(buffer[1])*scale,float.Parse(buffer[2])*scale));
+            }
+
             colors.Add(new Color (int.Parse (buffer[3])/255.0f,int.Parse (buffer[4])/255.0f,int.Parse (buffer[5])/255.0f));
             indices.Add(index);
             index++;
@@ -77,6 +83,7 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
                 MakeMesh();
                 
                 points.Clear();
+                normals.Clear();
                 colors.Clear();
                 indices.Clear();
                 index=0;
