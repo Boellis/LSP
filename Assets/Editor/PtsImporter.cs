@@ -18,8 +18,11 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
 ------------------
     */
     public override void OnImportAsset(AssetImportContext ctx){
-
-   
+        bool saveMat=false;
+        if(matVertex==null){
+            matVertex=new Material(Shader.Find("Point Cloud/Point"));
+            saveMat=true;
+        }
         var filename=Path.GetFileName(ctx.assetPath);
         StreamReader sr = new StreamReader (ctx.assetPath);
         string[] buffer;
@@ -65,6 +68,7 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
         }
         //while parsing through the file, if we hit the vertex limit, create a mesh and game object, and add it to the context.
         //reset everything and continue.
+        bool isInt=true;
         while(!sr.EndOfStream){
             buffer = sr.ReadLine().Split();
             if(invertYZ){
@@ -74,8 +78,14 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
                 points.Add(new Vector3 (float.Parse (buffer[0])*scale, float.Parse (buffer[1])*scale,float.Parse (buffer[2])*scale));
                 normals.Add(new Vector3(float.Parse(buffer[0])*scale,float.Parse(buffer[1])*scale,float.Parse(buffer[2])*scale));
             }
-
-            colors.Add(new Color (int.Parse (buffer[3])/255.0f,int.Parse (buffer[4])/255.0f,int.Parse (buffer[5])/255.0f));
+            int r;
+            if(isInt&&int.TryParse(buffer[3],out r)){
+                colors.Add(new Color (r/255.0f,int.Parse (buffer[4])/255.0f,int.Parse (buffer[5])/255.0f));
+            }else{
+                isInt=false;
+                colors.Add(new Color (float.Parse (buffer[3]),float.Parse (buffer[4]),float.Parse (buffer[5])));
+            }
+            
             indices.Add(index);
             index++;
             if(index==limitPoints){
@@ -96,7 +106,9 @@ The Point Cloud/Point shader does not work on DX11, but does work in OpenGL & Me
         if(index>0){
             MakeMesh();
         }
-
+        if(saveMat){
+            ctx.AddObjectToAsset(filename+"_mat",matVertex);
+        }
         ctx.AddObjectToAsset(filename,pointCloud);
         ctx.SetMainObject(pointCloud);
         
