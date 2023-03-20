@@ -167,7 +167,7 @@ PlayerSettings:
     iPhone: com.CodeCrew.LSP
   buildNumber:
     Standalone: 0
-    iPhone: 0
+    iPhone: 1
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
@@ -241,7 +241,7 @@ PlayerSettings:
   iOSManualSigningProvisioningProfileType: 1
   tvOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 1
-  iOSRequireARKit: 0
+  iOSRequireARKit: 1
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
@@ -561,7 +561,7 @@ PlayerSettings:
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
   cameraUsageDescription: Used for AR
-  locationUsageDescription: Used for Ar
+  locationUsageDescription: 
   microphoneUsageDescription: 
   bluetoothUsageDescription: 
   macOSTargetOSVersion: 10.13.0
@@ -822,7 +822,7 @@ PlayerSettings:
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
-  allowUnsafeCode: 0
+  allowUnsafeCode: 1
   useDeterministicCompilation: 1
   selectedPlatform: 3
   additionalIl2CppArgs: 
@@ -917,4 +917,4 @@ PlayerSettings:
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
   virtualTexturingSupportEnabled: 0
-  insecureHttpOption: 0
+  insecureHttpOption: 1
