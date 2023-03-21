@@ -956,7 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5407fbcd9ccd0449895d98362b8627a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  console: {fileID: 0}
   texture: {fileID: 0}
 --- !u!114 &1844826419
 MonoBehaviour:
@@ -970,6 +969,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bb3628908de7447a4a524f33010e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cache:
+  - {fileID: 11400000, guid: 19ea64bbee32ed240b23d2566ffb9917, type: 2}
+  - {fileID: 11400000, guid: 4f2426f7a954f7e43b17d4ae9e10dc11, type: 2}
+  - {fileID: 11400000, guid: 62d27a166b8648144b15f9f309036415, type: 2}
+  - {fileID: 11400000, guid: 8162ed4fdf75f6c4080a02ee0d9784b3, type: 2}
+  - {fileID: 11400000, guid: b8ba66f04d3d2d34e966cce43ebe9c0f, type: 2}
 --- !u!114 &1844826420
 MonoBehaviour:
   m_ObjectHideFlags: 0
