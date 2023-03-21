@@ -24,7 +24,7 @@ public class LynchingVictim : ScriptableObject
         markerOnSite = _markerOnSite;
 	}
 
-    public LynchingVictim(string _name, string _location, string _date, string _description,string _linkToSite, bool _markerOnSite)
+    public LynchingVictim(string _name, string _location, string _date, string _description,string _linkToSite, bool _markerOnSite,GpsCoord coordinate)
     {
         name = _name;
         location = _location;
