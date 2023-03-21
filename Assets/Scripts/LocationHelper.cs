@@ -14,6 +14,7 @@ public struct GpsCoord{
 
 public class LocationHelper : MonoBehaviour
 {
+    public float DefaultDistanceCutoff=100;
     // Start is called before the first frame update
     GpsCoord centerpoint=new GpsCoord(35.1991124817235f,-89.8685209172011f);
     
@@ -52,8 +53,15 @@ public class LocationHelper : MonoBehaviour
         var c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1-a)); 
         return earthRadiusKm * c;
     }
-    public bool IsWithinDistance(GpsCoord location, float distance){
-        return (distanceInKmBetweenEarthCoordinates(Input.location.lastData,location)*0.0001f)<=distance;
+    public float CurrentDistanceFrom(GpsCoord target){
+        return (distanceInKmBetweenEarthCoordinates(Input.location.lastData,target)*0.0001f);
+    }
+    public bool IsWithinDistance(GpsCoord location, out float currentDistance){
+        return IsWithinDistance(location,DefaultDistanceCutoff,out currentDistance);
+    }
+    public bool IsWithinDistance(GpsCoord location, float distance,out float currentDistance){
+        currentDistance=CurrentDistanceFrom(location);
+        return currentDistance<=distance;
     }
     public bool IsInMemphis(){
 
