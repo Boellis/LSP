@@ -21,3 +21,6 @@ MonoBehaviour:
     newspapers were able to cover the lynching in shocking and lurid detail.
   linkToSite: https://lynchingsitesmem.org/lynching/lee-walker
   markerOnSite: 1
+  coordinates:
+    latitude: 35.159
+    longitude: -90.04867

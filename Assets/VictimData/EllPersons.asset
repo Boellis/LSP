@@ -22,3 +22,6 @@ MonoBehaviour:
     reportedly a carnival-like atmosph
   linkToSite: https://lynchingsitesmem.org/lynching/ell-persons
   markerOnSite: 1
+  coordinates:
+    latitude: 35.15986
+    longitude: -89.88131

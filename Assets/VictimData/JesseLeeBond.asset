@@ -23,3 +23,6 @@ MonoBehaviour:
     and faith, in bringing this murder to light."
   linkToSite: https://lynchingsitesmem.org/lynching/jesse-lee-bond
   markerOnSite: 1
+  coordinates:
+    latitude: 35.29641
+    longitude: -89.66213

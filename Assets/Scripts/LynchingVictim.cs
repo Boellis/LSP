@@ -12,6 +12,7 @@ public class LynchingVictim : ScriptableObject
     public string description;
     public string linkToSite;
     public bool markerOnSite;
+    public GpsCoord coordinates;
 
     /* public LynchingVictim(string _name, string _location, Image _image, string _date, string _description,string _linkToSite, bool _markerOnSite)
 	{

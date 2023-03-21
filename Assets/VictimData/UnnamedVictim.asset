@@ -19,3 +19,6 @@ MonoBehaviour:
   description: Downtown Memphis near Market and 2nd
   linkToSite: https://lynchingsitesmem.org/lynching/name-unknown-downtown-memphis-1851
   markerOnSite: 1
+  coordinates:
+    latitude: 35.15243
+    longitude: -90.0486
