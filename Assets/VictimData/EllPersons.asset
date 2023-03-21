@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b28f3f780471b489d8acec818b2533, type: 3}
+  m_Name: EllPersons
+  m_EditorClassIdentifier: 
+  name: Ell Persons
+  location: Wolf River Area Near Bartlett Rd.
+  image: {fileID: 0}
+  date: May 22, 1917
+  description: Upon his capture by a mob local papers announced that he would be
+    burned the next morning. The crowd gathered to watch was estimated at 3,000.
+    Vendors set up stands among the crowd and sold sandwiches and snacks. It was
+    reportedly a carnival-like atmosph
+  linkToSite: https://lynchingsitesmem.org/lynching/ell-persons
+  markerOnSite: 1

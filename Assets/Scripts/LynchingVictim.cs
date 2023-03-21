@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class LynchingVictim
+[CreateAssetMenu(fileName = "LynchingVictim", menuName = "ScriptableObjects/VictimData", order = 1)]
+public class LynchingVictim : ScriptableObject
 {
     public string name;
     public string location;
@@ -12,7 +13,7 @@ public class LynchingVictim
     public string linkToSite;
     public bool markerOnSite;
 
-    public LynchingVictim(string _name, string _location, Image _image, string _date, string _description,string _linkToSite, bool _markerOnSite)
+    /* public LynchingVictim(string _name, string _location, Image _image, string _date, string _description,string _linkToSite, bool _markerOnSite)
 	{
         name = _name;
         location = _location;
@@ -31,5 +32,5 @@ public class LynchingVictim
         description = _description;
         linkToSite = _linkToSite;
         markerOnSite = _markerOnSite;
-    }
+    } */
 }
