@@ -11,8 +11,8 @@ public class LynchingVictim
     public string description;
     public string linkToSite;
     public bool markerOnSite;
-
-    public LynchingVictim(string _name, string _location, Image _image, string _date, string _description,string _linkToSite, bool _markerOnSite)
+    public GpsCoord coordinate;
+    public LynchingVictim(string _name, string _location, Image _image, string _date, string _description,string _linkToSite, bool _markerOnSite,GpsCoord coordinate)
 	{
         name = _name;
         location = _location;
@@ -23,7 +23,7 @@ public class LynchingVictim
         markerOnSite = _markerOnSite;
 	}
 
-    public LynchingVictim(string _name, string _location, string _date, string _description,string _linkToSite, bool _markerOnSite)
+    public LynchingVictim(string _name, string _location, string _date, string _description,string _linkToSite, bool _markerOnSite,GpsCoord coordinate)
     {
         name = _name;
         location = _location;
