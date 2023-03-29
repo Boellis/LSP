@@ -1,0 +1,7 @@
+# Gradle properties for Unity 2022.2.4f1 Android project
+
+# Enable AndroidX
+android.useAndroidX=true
+
+# Enable Jetifier to migrate third-party libraries to use
+android.enableJetifier=true
