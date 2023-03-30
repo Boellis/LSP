@@ -36,17 +36,22 @@ public class ARMarkerScan : MonoBehaviour
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
             //UpdateARObject(trackedImage);
+            SpawnPrefabOnImage(trackedImage);
+
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
             //UpdateARObject(trackedImage);
+            SpawnPrefabOnImage(trackedImage);
+
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
-            SpawnPrefabOnImage(trackedImage);
             //arObjects[trackedImage.name].SetActive(false);
+
+            //Function to remove spawned gameobject
         }
     }
 
