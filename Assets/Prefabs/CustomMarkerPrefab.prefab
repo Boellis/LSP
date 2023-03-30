@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4652392487226610}
   - component: {fileID: 23533797773284460}
   - component: {fileID: 102975335696083196}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: MarkerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198850956108242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: -1.06, z: -0.344}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.74, y: 0.11000001, z: -0.344}
+  m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4936519322476758}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23533797773284460
 MeshRenderer:
@@ -87,7 +87,7 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 4
+  m_Anchor: 3
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 50
@@ -96,7 +96,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 218956a5c2a6e42d6a60afccf80b002b, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
 --- !u!1 &1250323005008744
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,8 +311,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.36, y: 1.28, z: 0.02}
+  m_Center: {x: 0.03, y: 0, z: -0.24}
 --- !u!114 &7122278354011466962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7138866602533783746}
   - component: {fileID: 8497565576448514414}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 4068004205667477633}
   - component: {fileID: 2204003666532367654}
   - component: {fileID: 5772627728343915063}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PopupImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.034, y: 0.01}
-  m_SizeDelta: {x: 1082, y: 459}
+  m_SizeDelta: {x: 500, y: 459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5780274107286065024
 Canvas:
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 6800481009810574716}
   - component: {fileID: 6989864893965979131}
   - component: {fileID: 920240098422380677}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 1552628001100468923}
   - component: {fileID: 2928110189751778551}
   - component: {fileID: 6743125259644260611}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ARButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 6705179190624626437}
   - component: {fileID: 3120145308271897747}
   - component: {fileID: 6475968822035607702}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: DirectionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 6409856521992851894}
   - component: {fileID: 2070940131218957879}
   - component: {fileID: 4617007515203867512}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,7 +1053,7 @@ GameObject:
   - component: {fileID: 7599159429018653642}
   - component: {fileID: 1798621539668010557}
   - component: {fileID: 184108510591186333}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: VictimImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 4704920209566520578}
   - component: {fileID: 2997767290044447723}
   - component: {fileID: 3544603176175259740}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: InfoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1250,7 @@ GameObject:
   - component: {fileID: 5068263871808093470}
   - component: {fileID: 9122422044573896175}
   - component: {fileID: 2845689852380463513}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: DescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 2824044340599394917}
   - component: {fileID: 4987511985343433117}
   - component: {fileID: 7724776814428206302}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 1187375256997396572}
   - component: {fileID: 6198027249648820219}
   - component: {fileID: 3163329248541503875}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Date Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1612,7 +1612,7 @@ RectTransform:
   m_GameObject: {fileID: 5116008736576961286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5744305, y: 4.5744305, z: 4.5744305}
+  m_LocalScale: {x: 13.18671, y: 13.18671, z: 13.18671}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9216862463935421781}
@@ -1621,7 +1621,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -10.2, y: 2}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8923991630857509293
 CanvasRenderer:
@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 7652317644674370443}
   - component: {fileID: 3509154796626297774}
   - component: {fileID: 8090578657898239}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Location Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   - component: {fileID: 2789042490638594977}
   - component: {fileID: 1770579846038781494}
   - component: {fileID: 3573537398112370766}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: InfoCanvasPopupUpdated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 855786033077135573}
   - component: {fileID: 1573705051463744267}
   - component: {fileID: 564441476079996373}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 4801664235861068013}
   - component: {fileID: 8269496194758342262}
   - component: {fileID: 7968080008032984289}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MarkerOnSiteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,6 +2129,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4936519322476758}
     m_Modifications:
+    - target: {fileID: 171499173988574998, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 884882557536007444, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 909300444780020047, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2069205804392180188, guid: bdc21565ad4963b42a8008137b39cc0e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2234,6 +2249,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2164063022124693883, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463309048891283862, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286221626618623683, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493057568679416004, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656877589005489195, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314542255102677351, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032224863903877495, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756844345663747440, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5808296755006574685, guid: bdc21565ad4963b42a8008137b39cc0e,
         type: 3}
       propertyPath: m_Name
@@ -2241,7 +2296,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5808296755006574685, guid: bdc21565ad4963b42a8008137b39cc0e,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808296755006574685, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199827681155383485, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447111180603941895, guid: bdc21565ad4963b42a8008137b39cc0e,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

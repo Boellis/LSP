@@ -8,7 +8,7 @@
 	using System.Collections.Generic;
 
 	public class SpawnOnMap : MonoBehaviour
-	{
+	{ //HumanoidPointCloudShader
 		[SerializeField]
 		AbstractMap _map;
 
