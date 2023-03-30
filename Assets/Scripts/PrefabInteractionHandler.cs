@@ -156,6 +156,10 @@ public class PrefabInteractionHandler : MonoBehaviour
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir/35.1158711,-90.0279878/35.159867,+-89.881309/@35.1598438,-89.9513502,12z/data=!4m7!4m6!1m1!4e1!1m3!2m2!1d-89.881309!2d35.159867"); });
 
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Ell Persons");
+
+
 			}else{Debug.Log("Victim not found in the dictionary");}
 
 		}
@@ -193,6 +197,8 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.119395,%20-90.038595"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "People's Grocery");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -231,6 +237,8 @@ public class PrefabInteractionHandler : MonoBehaviour
 				
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.296408,%20-89.662129"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Jesse Lee Bond");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -269,6 +277,8 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.158065,%20-90.049201"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Lee Walker");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -307,6 +317,9 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.152427,%20-90.048603"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Unnamed Victim");
+				PlayerPrefs.GetString("CurrentVictim");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
