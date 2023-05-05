@@ -32,6 +32,8 @@ namespace Lean.Touch
 		[SerializeField]
 		private Vector3 remainingTranslation;
 
+		public Transform lspScanPosition;
+
 		/// <summary>If you've set Use to ManuallyAddedFingers, then you can call this method to manually add a finger.</summary>
 		public void AddFinger(LeanFinger finger)
 		{
@@ -60,6 +62,8 @@ namespace Lean.Touch
 		protected virtual void Awake()
 		{
 			Use.UpdateRequiredSelectable(gameObject);
+			//Set the x y and z position on screen for the scan transform
+			setScanPosition(this.gameObject.transform);
 		}
 
 		protected virtual void Update()
@@ -151,11 +155,24 @@ namespace Lean.Touch
 
 				// Convert back to world space
 				transform.position = camera.ScreenToWorldPoint(screenPoint);
+				//Debug.Log(transform.position);
+				//Set the x y and z position on screen for the scan transform
+				setScanPosition(this.gameObject.transform);
 			}
 			else
 			{
 				Debug.LogError("Failed to find camera. Either tag your camera as MainCamera, or set one in this component.", this);
 			}
+		}
+
+		public Transform getScanPosition()
+		{
+			return lspScanPosition;
+		}
+
+		public void setScanPosition(Transform currentScanTransform)
+		{
+			lspScanPosition = currentScanTransform;
 		}
 	}
 }

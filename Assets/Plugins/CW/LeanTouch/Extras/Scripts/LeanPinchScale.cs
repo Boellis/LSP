@@ -32,6 +32,8 @@ namespace Lean.Touch
 		[SerializeField]
 		private Vector3 remainingScale;
 
+		public Transform lspScanTransform;
+
 		/// <summary>If you've set Use to ManuallyAddedFingers, then you can call this method to manually add a finger.</summary>
 		public void AddFinger(LeanFinger finger)
 		{
@@ -60,6 +62,7 @@ namespace Lean.Touch
 		protected virtual void Awake()
 		{
 			Use.UpdateRequiredSelectable(gameObject);
+			setScanScale(this.gameObject.transform);
 		}
 
 		protected virtual void Update()
@@ -96,6 +99,7 @@ namespace Lean.Touch
 
 				remainingScale += transform.localPosition - oldScale;
 			}
+			setScanScale(this.gameObject.transform);
 
 			// Get t value
 			var factor = CwHelper.DampenFactor(damping, Time.deltaTime);
@@ -161,6 +165,16 @@ namespace Lean.Touch
 			{
 				Debug.LogError("Failed to find camera. Either tag your cameras MainCamera, or set one in this component.", this);
 			}
+		}
+
+		public Vector3 getScanScale()
+		{
+			return lspScanTransform.localScale;
+		}
+
+		public void setScanScale(Transform currentScanTransform)
+		{
+			lspScanTransform = currentScanTransform;
 		}
 	}
 }

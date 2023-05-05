@@ -195,10 +195,10 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 				//Uncomment me when victim data is linked to specfic point cloud expereinces
-				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				//Show the "not near marker" popup
-				ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.119395,%20-90.038595"); });
@@ -237,10 +237,10 @@ public class PrefabInteractionHandler : MonoBehaviour
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
 				//Uncomment me when victim data is linked to specfic point cloud expereinces
-				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				//Show the "not near marker" popup
-				ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 				
@@ -283,10 +283,12 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 				//Uncomment me when victim data is linked to specfic point cloud expereinces
-				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/Sites/LeeWalker"); });
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
 
 				//Show the "not near marker" popup
-				ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.158065,%20-90.049201"); });
@@ -325,10 +327,11 @@ public class PrefabInteractionHandler : MonoBehaviour
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
 				//Uncomment me when victim data is linked to specfic point cloud expereinces
-				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/Sites/Unnamed"); });
 
 				//Show the "not near marker" popup
-				ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
+				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 
