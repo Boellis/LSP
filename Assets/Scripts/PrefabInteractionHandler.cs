@@ -24,6 +24,7 @@ public class PrefabInteractionHandler : MonoBehaviour
 	public Button ARButton;
 	public Button directionsButton;
 	public Button infoButton;
+	public GameObject OutOfRangeMarker;
 
 	public void Start()
 	{
@@ -156,6 +157,10 @@ public class PrefabInteractionHandler : MonoBehaviour
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir/35.1158711,-90.0279878/35.159867,+-89.881309/@35.1598438,-89.9513502,12z/data=!4m7!4m6!1m1!4e1!1m3!2m2!1d-89.881309!2d35.159867"); });
 
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Ell Persons");
+
+
 			}else{Debug.Log("Victim not found in the dictionary");}
 
 		}
@@ -189,10 +194,16 @@ public class PrefabInteractionHandler : MonoBehaviour
 				descriptionText.text = victim.description;
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
+				//Uncomment me when victim data is linked to specfic point cloud expereinces
 				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
+				//Show the "not near marker" popup
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.119395,%20-90.038595"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "People's Grocery");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -225,12 +236,18 @@ public class PrefabInteractionHandler : MonoBehaviour
 				locationText.text = victim.location;
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
+				//Uncomment me when victim data is linked to specfic point cloud expereinces
 				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
+				//Show the "not near marker" popup
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 				
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.296408,%20-89.662129"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Jesse Lee Bond");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -265,10 +282,18 @@ public class PrefabInteractionHandler : MonoBehaviour
 				descriptionText.text = victim.description;
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
+				//Uncomment me when victim data is linked to specfic point cloud expereinces
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/Sites/LeeWalker"); });
 				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
+
+
+				//Show the "not near marker" popup
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.158065,%20-90.049201"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Lee Walker");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -301,12 +326,19 @@ public class PrefabInteractionHandler : MonoBehaviour
 				locationText.text = victim.location;
 				dateText.text = victim.date;
 				descriptionText.text = victim.description;
+				//Uncomment me when victim data is linked to specfic point cloud expereinces
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/Sites/Unnamed"); });
+
+				//Show the "not near marker" popup
+				//ARButton.GetComponent<Button>().onClick.AddListener(delegate { StartCoroutine(cycleMarkerOutOfRange()); });
 				ARButton.GetComponent<Button>().onClick.AddListener(delegate { SceneManager.LoadScene("Scenes/AR"); });
 
 				infoButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage(victim.linkToSite); });
 
 				//This function will be replaced this Jonathans Code to take them to directions
 				directionsButton.GetComponent<Button>().onClick.AddListener(delegate { openWebPage("https://www.google.com/maps/dir//35.152427,%20-90.048603"); });
+				//Set the global variable for which victim wer're on. We'll use this to decide with 3D scene to display
+				PlayerPrefs.SetString("CurrentVictim", "Unnamed Victim");
 			}
 			else { Debug.Log("Victim not found in the dictionary"); }
 
@@ -322,4 +354,15 @@ public class PrefabInteractionHandler : MonoBehaviour
 		browser.openBrowserURL(victimInfoURL);
 	}
 
+	public IEnumerator cycleMarkerOutOfRange()
+	{
+		//Turn the popup on
+		OutOfRangeMarker.SetActive(true);
+		//Wait 3 seconds
+		yield return new WaitForSeconds(3);
+		//Turn the popup off
+		OutOfRangeMarker.SetActive(false);
+
+
+	}
 }

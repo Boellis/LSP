@@ -9,7 +9,7 @@ public class BrowserOpener : MonoBehaviour {
 	public void openBrowserURL(string pageToOpen) {
 		InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions();
 		options.displayURLAsPageTitle = false;
-		options.pageTitle = "InAppBrowser example";
+		options.pageTitle = "LSP Browser";
 
 		InAppBrowser.OpenURL(pageToOpen, options);
 	}

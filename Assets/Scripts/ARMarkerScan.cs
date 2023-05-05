@@ -8,6 +8,7 @@ public class ARMarkerScan : MonoBehaviour
     [SerializeField] private ARTrackedImageManager trackedImageManager;
     //[SerializeField] private GameObject[] arObjectsToPlace;
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
+    [SerializeField] private GameObject prefabToSpawn;
 
     private void Awake()
     {
@@ -34,17 +35,23 @@ public class ARMarkerScan : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            UpdateARObject(trackedImage);
+            //UpdateARObject(trackedImage);
+            SpawnPrefabOnImage(trackedImage);
+
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            UpdateARObject(trackedImage);
+            //UpdateARObject(trackedImage);
+            SpawnPrefabOnImage(trackedImage);
+
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
-            arObjects[trackedImage.name].SetActive(false);
+            //arObjects[trackedImage.name].SetActive(false);
+
+            //Function to remove spawned gameobject
         }
     }
 
@@ -56,5 +63,11 @@ public class ARMarkerScan : MonoBehaviour
         arObject.transform.position = trackedImage.transform.position;
         arObject.transform.rotation = trackedImage.transform.rotation;
         arObject.SetActive(true);
+    }
+
+    private void SpawnPrefabOnImage(ARTrackedImage trackedImage)
+    {
+        GameObject newObject = Instantiate(prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
+        newObject.transform.SetParent(trackedImage.transform);
     }
 }

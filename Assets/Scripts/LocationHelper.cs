@@ -5,6 +5,7 @@ using UnityEngine;
 public struct GpsCoord{
     public float latitude;
     public float longitude;
+
     public GpsCoord(float latitude,float longitude){
         this.latitude=latitude;
         this.longitude=longitude;
@@ -12,24 +13,60 @@ public struct GpsCoord{
     public static implicit operator GpsCoord(LocationInfo l) => new GpsCoord(l.latitude,l.longitude);
 }
 
+
 public class LocationHelper : MonoBehaviour
 {
-    public float DefaultDistanceCutoff=100;
     // Start is called before the first frame update
     GpsCoord centerpoint=new GpsCoord(35.1991124817235f,-89.8685209172011f);
     
     float shelbyCountyDistanceKm;
     //35.1991124817235, -89.8685209172011
-    
-    //
-    
+
+
+
+
     void Start()
     {
-        Input.location.Start();    
-    
-        var extLimit = new GpsCoord(34.9950365675264f, -89.88439649661038f);  
-        shelbyCountyDistanceKm=distanceInKmBetweenEarthCoordinates(centerpoint,extLimit);
+        StartCoroutine(StartLocationService());
 
+        //var extLimit = new GpsCoord(34.9950365675264f, -89.88439649661038f);  
+        //shelbyCountyDistanceKm=distanceInKmBetweenEarthCoordinates(centerpoint,extLimit);
+
+    }
+    // check for the location service status and start it if necessary
+    IEnumerator StartLocationService()
+    {
+        if (!Input.location.isEnabledByUser)
+        {
+            Debug.Log("Location service is not enabled by user.");
+            yield break;
+        }
+
+        Input.location.Start();
+
+        int maxWait = 20;
+        while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+        {
+            yield return new WaitForSeconds(1);
+            maxWait--;
+        }
+
+        if (maxWait < 1)
+        {
+            Debug.Log("Timed out while initializing location service.");
+            yield break;
+        }
+
+        if (Input.location.status == LocationServiceStatus.Failed)
+        {
+            Debug.Log("Unable to determine device location.");
+            yield break;
+        }
+    }
+
+    public GpsCoord getCurrentLocation()
+	{
+        return CurrentLocation;
     }
 
     public bool isReady => Input.location.status==LocationServiceStatus.Running;
@@ -53,18 +90,32 @@ public class LocationHelper : MonoBehaviour
         var c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1-a)); 
         return earthRadiusKm * c;
     }
-    public float CurrentDistanceFrom(GpsCoord target){
-        return (distanceInKmBetweenEarthCoordinates(Input.location.lastData,target)*0.0001f);
-    }
-    public bool IsWithinDistance(GpsCoord location, out float currentDistance){
-        return IsWithinDistance(location,DefaultDistanceCutoff,out currentDistance);
-    }
-    public bool IsWithinDistance(GpsCoord location, float distance,out float currentDistance){
-        currentDistance=CurrentDistanceFrom(location);
-        return currentDistance<=distance;
+    public bool IsWithinDistance(GpsCoord targetLocation, float distance){
+        return (distanceInKmBetweenEarthCoordinates(getCurrentLocation(), targetLocation) * 0.0001f) <= distance;
+
+        //return (distanceInKmBetweenEarthCoordinates(Input.location.lastData,location)*0.0001f)<=distance;
     }
     public bool IsInMemphis(){
 
         return distanceInKmBetweenEarthCoordinates(Input.location.lastData,centerpoint)<=shelbyCountyDistanceKm;
+    }
+
+    // get the current GPS location of the user,
+    public GpsCoord CurrentLocation
+    {
+        get
+        {
+            if (isReady)
+            {
+                Debug.Log("Here is our current Location:");
+                Debug.Log(Input.location.lastData);
+                return Input.location.lastData;
+            }
+            else
+            {
+                Debug.Log("Location service is not ready.");
+                return new GpsCoord(0, 0);
+            }
+        }
     }
 }
