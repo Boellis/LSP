@@ -21,7 +21,6 @@ public class NativeToolkitExample : MonoBehaviour {
 		NativeToolkit.OnImageSaved += ImageSaved;
 		NativeToolkit.OnImagePicked += ImagePicked;
 		NativeToolkit.OnCameraShotComplete += CameraShotComplete;
-		NativeToolkit.OnContactPicked += ContactPicked;
 	}
 
 	void OnDisable ()
@@ -30,7 +29,6 @@ public class NativeToolkitExample : MonoBehaviour {
 		NativeToolkit.OnImageSaved -= ImageSaved;
 		NativeToolkit.OnImagePicked -= ImagePicked;
 		NativeToolkit.OnCameraShotComplete -= CameraShotComplete;
-		NativeToolkit.OnContactPicked -= ContactPicked;
 	}
 
 
@@ -63,7 +61,7 @@ public class NativeToolkitExample : MonoBehaviour {
 		NativeToolkit.TakeCameraShot();
 	}
 
-	public void OnPickContactPress()
+	/*public void OnPickContactPress()
 	{
 		NativeToolkit.PickContact();
 	}
@@ -99,7 +97,7 @@ public class NativeToolkitExample : MonoBehaviour {
 	public void OnRateAppPress()
 	{
 		NativeToolkit.RateApp ("Rate This App", "Please take a moment to rate this App", "Rate Now", "Later", "No, Thanks", "343200656", AppRated);
-	}
+	}*/
 
 	//=============================================================================
 	// Callbacks

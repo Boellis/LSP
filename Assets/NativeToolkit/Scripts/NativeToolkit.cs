@@ -36,44 +36,44 @@ public class NativeToolkit : MonoBehaviour {
 	[DllImport("__Internal")]
 	private static extern void openCamera();
 
-	[DllImport("__Internal")]
-	private static extern void pickContact();
+	//[DllImport("__Internal")]
+	//private static extern void pickContact();
 
-	[DllImport("__Internal")]
-	private static extern string getLocale();
+	//[DllImport("__Internal")]
+	//private static extern string getLocale();
 
 	[DllImport("__Internal")]
 	private static extern void sendEmail(string to, string cc, string bcc, string subject, string body, string imagePath);
 
-	[DllImport("__Internal")]
-	private static extern void scheduleLocalNotification(string id, string title, string message, int delayInMinutes, string sound);
+	//[DllImport("__Internal")]
+	//private static extern void scheduleLocalNotification(string id, string title, string message, int delayInMinutes, string sound);
 
-	[DllImport("__Internal")]
-	private static extern void clearLocalNotification(string id);
+	//[DllImport("__Internal")]
+	//private static extern void clearLocalNotification(string id);
 
-	[DllImport("__Internal")]
-	private static extern void clearAllLocalNotifications();
+	//[DllImport("__Internal")]
+	//private static extern void clearAllLocalNotifications();
 
-	[DllImport("__Internal")]
-	private static extern bool wasLaunchedFromNotification();
+	//[DllImport("__Internal")]
+	//private static extern bool wasLaunchedFromNotification();
 
-	[DllImport("__Internal")]
-	private static extern void rateApp(string title, string message, string positiveBtnText, string neutralBtnText, string negativeBtnText, string appleId);
+	//[DllImport("__Internal")]
+	//private static extern void rateApp(string title, string message, string positiveBtnText, string neutralBtnText, string negativeBtnText, string appleId);
 
-	[DllImport("__Internal")]
-	private static extern void showConfirm(string title, string message, string positiveBtnText, string negativeBtnText);
+	//[DllImport("__Internal")]
+	//private static extern void showConfirm(string title, string message, string positiveBtnText, string negativeBtnText);
 
-	[DllImport("__Internal")]
-	private static extern void showAlert(string title, string message, string confirmBtnText);
+	//[DllImport("__Internal")]
+	//private static extern void showAlert(string title, string message, string confirmBtnText);
 
-    [DllImport("__Internal")]
-    private static extern void startLocation();
+    //[DllImport("__Internal")]
+    //private static extern void startLocation();
 
-    [DllImport("__Internal")]
-    private static extern double getLongitude();
+    //[DllImport("__Internal")]
+    //private static extern double getLongitude();
 
-    [DllImport("__Internal")]
-    private static extern double getLatitude();
+    //[DllImport("__Internal")]
+    //Private static extern double getLatitude();
 
 #elif UNITY_ANDROID
 
@@ -346,42 +346,6 @@ public class NativeToolkit : MonoBehaviour {
             OnCameraShotComplete(texture, path);
 	}
 
-
-	//=============================================================================
-	// Contacts
-	//=============================================================================
-	
-	public static void PickContact()
-	{
-		Instance.Awake ();
-		
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer)
-			pickContact();
-		
-		#elif UNITY_ANDROID
-
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("pickContact");
-		
-		#endif
-	}
-
-	public void OnPickContactFinished(string data)
-	{
-		Dictionary<string, object> details = Json.Deserialize(data) as Dictionary<string, object>;
-		string name = "";
-		string number = "";
-		string email = "";
-
-		if(details.ContainsKey("name")) name = details["name"].ToString();
-		if(details.ContainsKey("number")) number = details["number"].ToString();
-		if(details.ContainsKey("email")) email = details["email"].ToString();
-
-		if(OnContactPicked != null)
-			OnContactPicked(name, number, email);
-	}
 	
 
 	//=============================================================================
@@ -404,283 +368,6 @@ public class NativeToolkit : MonoBehaviour {
 		
 		#endif
 	}
-
-
-	//=============================================================================
-	// Confirm Dialog / Alert
-	//=============================================================================
-	
-	public static void ShowConfirm(string title, string message, Action<bool> callback = null, string positiveBtnText = "Ok", string negativeBtnText = "Cancel")
-	{
-		Instance.Awake ();
-
-		OnDialogComplete = callback;
-
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer)
-			showConfirm (title, message, positiveBtnText, negativeBtnText);
-		
-		#elif UNITY_ANDROID	
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("showConfirm", new object[] { title, message, positiveBtnText, negativeBtnText } );
-		
-		#endif
-	}
-
-	public static void ShowAlert(string title, string message, Action<bool> callback = null, string btnText = "Ok")
-	{
-		Instance.Awake ();
-		
-		OnDialogComplete = callback;
-		
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer)
-			showAlert (title, message, btnText);
-		
-		#elif UNITY_ANDROID	
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("showAlert", new object[] { title, message, btnText } );
-
-		#endif
-	}
-
-	public void OnDialogPress(string result)
-	{
-		if(OnDialogComplete != null)
-		{
-			if(result == "Yes")
-				OnDialogComplete(true);
-			else if(result == "No")
-				OnDialogComplete(false);
-		}
-	}
-
-
-	//=============================================================================
-	// Rate this app
-	//=============================================================================
-	
-	public static void RateApp(string title = "Rate This App", string message = "Please take a moment to rate this App", 
-	                           string positiveBtnText = "Rate Now", string neutralBtnText = "Later", string negativeBtnText = "No, Thanks",
-	                           string appleId = "", Action<string> callback = null)
-	{
-		Instance.Awake ();
-		
-		OnRateComplete = callback;
-
-		#if UNITY_IOS
-		
-		if(Application.platform == RuntimePlatform.IPhonePlayer)
-			if(appleId != "")
-				rateApp(title, message, positiveBtnText, neutralBtnText, negativeBtnText, appleId);
-		
-		#elif UNITY_ANDROID	
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("rateThisApp", new object[] { title, message, positiveBtnText, neutralBtnText, negativeBtnText } );
-		
-		#endif
-	}
-
-	public void OnRatePress(string result)
-	{
-		if(OnRateComplete != null)
-		{
-			OnRateComplete(result);
-		}
-	}
-
-
-	//=============================================================================
-	// Location / Locale
-	//=============================================================================
-
-	public static bool StartLocation()
-	{
-        Instance.Awake();
-
-        if(!Input.location.isEnabledByUser)
-		{
-			Debug.Log ("Location service disabled");
-			return false;
-		}
-
-        #if UNITY_IOS
-
-        if(Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            startLocation();
-        }
-
-        #elif UNITY_ANDROID
-        
-        if(Application.platform == RuntimePlatform.Android)
-        {
-            obj.CallStatic("startLocation");
-        }
-        
-        #endif
-
-        return true;
-	}
-
-	public static double GetLongitude()
-	{
-        Instance.Awake();
-
-        if(!Input.location.isEnabledByUser)
-        {
-            return 0;
-        }
-
-        #if UNITY_IOS
-
-        if(Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            return getLongitude();
-        }
-
-        #elif UNITY_ANDROID
-
-        if(Application.platform == RuntimePlatform.Android)
-        {
-            return obj.CallStatic<double>("getLongitude");
-        }
-        
-        #endif
-
-        return 0;
-	}
-	
-	public static double GetLatitude()
-	{
-        Instance.Awake();
-
-        if(!Input.location.isEnabledByUser)
-        {
-            return 0;
-        }
-
-        #if UNITY_IOS
-
-        if(Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            return getLatitude();
-        }
-
-        #elif UNITY_ANDROID
-
-        if(Application.platform == RuntimePlatform.Android)
-        {
-            return obj.CallStatic<double>("getLatitude");
-        }
-        
-        #endif
-
-        return 0;
-    }
-
-	public static string GetCountryCode()
-	{
-		Instance.Awake ();
-
-		string locale = null;
-		
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer)
-			locale = getLocale ();
-		
-		#elif UNITY_ANDROID	
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			locale = obj.CallStatic<string>("getLocale");
-		
-		#endif
-		
-		return locale;
-	}
-
-
-	//=============================================================================
-	// Local notifications
-	//=============================================================================
-
-	public static void ScheduleLocalNotification(string title, string message, int id = 0, int delayInMinutes = 0, string sound = "default_sound", 
-	                                         bool vibrate = false, string smallIcon = "ic_notification", string largeIcon = "ic_notification_large")
-	{
-		Instance.Awake();
-
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer) 
-			scheduleLocalNotification(id.ToString(), title, message, delayInMinutes, sound);
-		
-		#elif UNITY_ANDROID	
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("scheduleLocalNotification", new object[] { title, message, id, delayInMinutes, sound, vibrate, smallIcon, largeIcon } );
-		
-		#endif
-	}
-
-	public static void ClearLocalNotification(int id)
-	{
-		Instance.Awake ();
-		
-		#if UNITY_IOS
-		
-		if(Application.platform == RuntimePlatform.IPhonePlayer) 
-			clearLocalNotification(id.ToString());
-		
-		#elif UNITY_ANDROID
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("clearLocalNotification", new object[] { id });
-		
-		#endif
-	}
-
-	public static void ClearAllLocalNotifications()
-	{
-		Instance.Awake ();
-
-		#if UNITY_IOS
-
-		if(Application.platform == RuntimePlatform.IPhonePlayer) 
-			clearAllLocalNotifications();
-
-		#elif UNITY_ANDROID
-
-		if(Application.platform == RuntimePlatform.Android) 
-			obj.CallStatic("clearAllLocalNotifications");
-
-		#endif
-	}
-
-	public static bool WasLaunchedFromNotification()
-	{
-		Instance.Awake ();
-
-		#if UNITY_IOS
-		
-		if(Application.platform == RuntimePlatform.IPhonePlayer) 
-			return wasLaunchedFromNotification();
-
-		#elif UNITY_ANDROID
-		
-		if(Application.platform == RuntimePlatform.Android) 
-			return obj.CallStatic<bool>("wasLaunchedFromNotification");
-		
-		#endif
-		
-		return false;
-	}
-
 
 	//=============================================================================
 	// General functions
