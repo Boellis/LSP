@@ -257,7 +257,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/Users/brand/Desktop/Unity/SpatialGrowBackup/AndroidKeystore/user.keystore
-  AndroidKeyaliasName: lsp
+  AndroidKeyaliasName: spatialgrow
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
