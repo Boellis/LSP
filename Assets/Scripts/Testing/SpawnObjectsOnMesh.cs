@@ -9,6 +9,7 @@ public class SpawnObjectsOnPointCloud : MonoBehaviour
     //public float maxObjectScale = 1.0f; // The maximum scale of the spawned objects (uniform scale)
     public float maxZ;
     public float minZ;
+    public float modelScale;
 
     private Vector3[] points;
 
@@ -39,7 +40,7 @@ public class SpawnObjectsOnPointCloud : MonoBehaviour
 
         // Set a random uniform scale for the spawned object between minObjectScale and maxObjectScale
         //float randomUniformScale = Random.Range(minObjectScale, maxObjectScale);
-        //instance.transform.localScale = new Vector3(randomUniformScale, randomUniformScale, randomUniformScale);
+        instance.transform.localScale = new Vector3(modelScale, modelScale, modelScale);
 
         instance.transform.SetParent(transform);
     }

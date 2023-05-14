@@ -6,7 +6,7 @@ using System.IO;
 [ScriptedImporter(1, "pts")]
 public class PtsImporter : ScriptedImporter
 {
-    private int limitPoints = 65000;
+    private int limitPoints = 5000;//65000
     public float scale = 1;
     public bool invertYZ;
     public Material matVertex;// = new Material(Shader.Find("Custom/VertexColor"));
