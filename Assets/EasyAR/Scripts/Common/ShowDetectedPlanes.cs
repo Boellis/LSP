@@ -32,7 +32,7 @@ public class ShowDetectedPlanes : MonoBehaviour
         
         if (shadowPlane == null)
         {
-            shadowPlane = GameObject.FindWithTag("ShadowPlane");
+            //shadowPlane = GameObject.FindWithTag("ShadowPlane");
         }
 
         if (planeEnable)
