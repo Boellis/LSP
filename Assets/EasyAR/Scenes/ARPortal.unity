@@ -823,9 +823,7 @@ GameObject:
   - component: {fileID: 511337255}
   - component: {fileID: 511337254}
   - component: {fileID: 511337253}
-  - component: {fileID: 511337252}
   - component: {fileID: 511337251}
-  - component: {fileID: 511337249}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -833,18 +831,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &511337249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511337248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18103db909369b4fa98355ee8575863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &511337251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,19 +850,6 @@ MonoBehaviour:
   jesseLeeAudioClip: {fileID: 8300000, guid: 50395b8a5a668f640927cd515426f5d2, type: 3}
   peoplesGroceryAudioClip: {fileID: 8300000, guid: 6230c541ca794044fb8dfe7d9c234acd,
     type: 3}
---- !u!114 &511337252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511337248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5407fbcd9ccd0449895d98362b8627a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texture: {fileID: 0}
 --- !u!114 &511337253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,7 +1894,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 511337252}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NativeToolkitExample, Assembly-CSharp
         m_MethodName: OnSaveImagePress
         m_Mode: 1
@@ -2320,7 +2293,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 511337252}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NativeToolkitExample, Assembly-CSharp
         m_MethodName: OnEmailSharePress
         m_Mode: 1

@@ -28,6 +28,7 @@ public class PlayerHandler : MonoBehaviour
             //Turn both sides of the sphere on
             green.SetActive(true);
             red.SetActive(true);
+            //Start playing the audio
 
 
         }
