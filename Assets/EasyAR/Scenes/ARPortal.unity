@@ -848,7 +848,7 @@ MonoBehaviour:
   unnamedAudioClip: {fileID: 8300000, guid: 6c3e5ae30c644a04fa9d81f57bd830ec, type: 3}
   leeWalkerAudioClip: {fileID: 8300000, guid: cfb5793db6dd45549b0295f10a11db01, type: 3}
   jesseLeeAudioClip: {fileID: 8300000, guid: 50395b8a5a668f640927cd515426f5d2, type: 3}
-  peoplesGroceryAudioClip: {fileID: 8300000, guid: 6230c541ca794044fb8dfe7d9c234acd,
+  peoplesGroceryAudioClip: {fileID: 8300000, guid: 93f09834626634845aca26e2b6a2b360,
     type: 3}
 --- !u!114 &511337253
 MonoBehaviour:

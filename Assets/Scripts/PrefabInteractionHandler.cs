@@ -349,7 +349,6 @@ public class PrefabInteractionHandler : MonoBehaviour
 
 	public void openWebPage(string victimInfoURL)
 	{
-		Application.OpenURL(victimInfoURL);
 		BrowserOpener browser = this.gameObject.GetComponent<BrowserOpener>();
 		browser.openBrowserURL(victimInfoURL);
 	}

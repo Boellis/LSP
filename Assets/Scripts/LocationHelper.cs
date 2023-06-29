@@ -17,9 +17,9 @@ public struct GpsCoord{
 public class LocationHelper : MonoBehaviour
 {
     // Start is called before the first frame update
-    GpsCoord centerpoint=new GpsCoord(35.1991124817235f,-89.8685209172011f);
+    GpsCoord centerpoint=new GpsCoord(35.123379f, -90.019434f);
     
-    float shelbyCountyDistanceKm;
+    float shelbyCountyDistanceKm = 20;
     //35.1991124817235, -89.8685209172011
 
 
@@ -36,6 +36,7 @@ public class LocationHelper : MonoBehaviour
     // check for the location service status and start it if necessary
     IEnumerator StartLocationService()
     {
+
         if (!Input.location.isEnabledByUser)
         {
             Debug.Log("Location service is not enabled by user.");

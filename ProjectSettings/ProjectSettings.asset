@@ -138,7 +138,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 0.2
+  bundleVersion: 0.3
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -264,7 +264,7 @@ PlayerSettings:
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
-  androidUseLowAccuracyLocation: 0
+  androidUseLowAccuracyLocation: 1
   androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
@@ -811,7 +811,8 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Android: USC_UNITY_PIPELINE_LEGACY
-    iPhone: UNITY_XR_ARKIT_LOADER_ENABLED
+    Standalone: USC_UNITY_PIPELINE_LEGACY
+    iPhone: UNITY_XR_ARKIT_LOADER_ENABLED;USC_UNITY_PIPELINE_LEGACY
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
