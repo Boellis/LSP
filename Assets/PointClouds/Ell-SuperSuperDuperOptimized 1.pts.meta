@@ -10,4 +10,4 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 60d5a51053a7f4c4383172d541153c30, type: 3}
   scale: 1
   invertYZ: 0
-  matVertex: {fileID: 2100000, guid: 890714f5068f16a45910741018ff55a1, type: 2}
+  matVertex: {fileID: 2100000, guid: ba8f52672f9107243a069b1322091aae, type: 2}
