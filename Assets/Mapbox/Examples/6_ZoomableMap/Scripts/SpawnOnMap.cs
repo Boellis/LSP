@@ -62,7 +62,7 @@
 		public IEnumerator showEnableLocationServicesPopup(GameObject popup)
 		{
 			popup.SetActive(true);
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(120f);
 			popup.SetActive(false);
 		}
 
