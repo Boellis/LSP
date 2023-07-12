@@ -132,7 +132,7 @@
 					//isInMemphisArray[isInMemphisArray.Length - 1] = "35.123379, -90.019434";
 					isInMemphisArray[isInMemphisArray.Length - 1] = Input.location.lastData.latitude.ToString() + "," + Input.location.lastData.longitude.ToString();
 
-
+					//Set our old array to our updated array with our users current location
 					_locationStrings = isInMemphisArray;
 
 					//_locationStrings[5] = Input.location.lastData.latitude.ToString() + "," + Input.location.lastData.longitude.ToString();
@@ -169,7 +169,7 @@
 				else //handle both user location marker and lsp site markers
 				{
 					//Show the popup for 3 seconds that we're not in Memphis.
-					StartCoroutine(showOutOfRangePopup(3f));
+					StartCoroutine(showOutOfRangePopup(5f));
 					_locations = new Vector2d[_locationStrings.Length + 1];//the +1 is to account for the user's location + marker
 					_spawnedObjects = new List<GameObject>();
 					for (int i = 0; i < _locationStrings.Length; i++)
