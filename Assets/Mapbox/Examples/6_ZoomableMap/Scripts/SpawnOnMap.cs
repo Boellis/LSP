@@ -7,6 +7,7 @@
 	using Mapbox.Unity.Utilities;
 	using System.Collections.Generic;
 	using System.Collections;
+	using System;
 
 	public class SpawnOnMap : MonoBehaviour
 	{ //HumanoidPointCloudShader
@@ -44,6 +45,8 @@
 			lynchingSiteTags.Add("Jesse Lee Bond");
 			lynchingSiteTags.Add("Lee Walker");
 			lynchingSiteTags.Add("Unnamed Victim");
+			lynchingSiteTags.Add("Player");
+
 
 			StartCoroutine(StartLocationServiceAndSpawnMarkers());
 		}
@@ -59,7 +62,7 @@
 		public IEnumerator showEnableLocationServicesPopup(GameObject popup)
 		{
 			popup.SetActive(true);
-			yield return new WaitForSeconds(15f);
+			yield return new WaitForSeconds(5);
 			popup.SetActive(false);
 		}
 
@@ -84,9 +87,9 @@
 				//StartCoroutine(showEnableLocationServicesPopup(enableLocationServicesPopupAndroid));
 
 				Debug.Log("Location service is not enabled by user.");
-				//Prompt the user to go to their Settings page and allow LSP to use their location
+
 #if UNITY_ANDROID
-				StartCoroutine(showEnableLocationServicesPopup(enableLocationServicesPopupAndroid));
+					StartCoroutine(showEnableLocationServicesPopup(enableLocationServicesPopupAndroid));
 
 #elif UNITY_IOS
 				StartCoroutine(showEnableLocationServicesPopup(enableLocationServicesPopupIOS));
@@ -119,14 +122,37 @@
 			{
 				if (IsWithinMemphis())//only handle markers if user is out of memphis
 				{
+					//Create new array with extra slot
+					string[] isInMemphisArray = new string[_locationStrings.Length + 1];
+
+					// Copy the old array into the new one
+					Array.Copy(_locationStrings, isInMemphisArray, _locationStrings.Length);
+
+					// Add the new item
+					//isInMemphisArray[isInMemphisArray.Length - 1] = "35.123379, -90.019434";
+					isInMemphisArray[isInMemphisArray.Length - 1] = Input.location.lastData.latitude.ToString() + "," + Input.location.lastData.longitude.ToString();
+
+
+					_locationStrings = isInMemphisArray;
+
+					//_locationStrings[5] = Input.location.lastData.latitude.ToString() + "," + Input.location.lastData.longitude.ToString();
 					_locations = new Vector2d[_locationStrings.Length];
 					_spawnedObjects = new List<GameObject>();
 					for (int i = 0; i < _locationStrings.Length; i++)
 					{
 						var locationString = _locationStrings[i];
 						_locations[i] = Conversions.StringToLatLon(locationString);
-						var instance = Instantiate(_markerPrefab);
-
+						GameObject instance;
+						//Spawn the normal marker on the map
+						if (i != 5)
+						{
+							instance = Instantiate(_markerPrefab);
+						}
+						//If we're in memphis, we'll have 6 locations so spawn the you are here marker now
+						else
+						{
+							instance = Instantiate(youAreHereMarkerPrefab);
+						}
 						//Make sure that the order you add in the location strings match the order of the lynching site tags or you will have the wrong info being loaded in
 						//Set the tag of the prefab
 						instance.tag = lynchingSiteTags[i];
@@ -137,16 +163,7 @@
 						instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 						_spawnedObjects.Add(instance);
 
-						/*
-						//We are in memphis so show the user is here marker on the map
-						Vector2d currentPosition = new Vector2d(Input.location.lastData.latitude, Input.location.lastData.longitude); ;
-						//Show the marker on the map
-						var instance2 = Instantiate(youAreHereMarkerPrefab);
-						instance2.transform.localPosition = _map.GeoToWorldPosition(currentPosition, true);
-						instance2.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-						_spawnedObjects.Add(instance2);
-						_locations[5] = (currentPosition);
-						*/
+						
 					}
 				}
 				else //handle both user location marker and lsp site markers
